@@ -1,0 +1,6 @@
+Resolutions: {
+    desktop: 1366px, 
+    tablet: max-width:991px, 
+    ~: max-width:767px;
+    mobile: max-width: 424px
+}

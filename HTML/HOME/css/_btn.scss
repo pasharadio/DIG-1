@@ -1,0 +1,26 @@
+.btn{
+  display: inline-block;
+  max-width: 300px;
+  min-width: 135px;
+  padding:16px 15px 16px 15px;
+  align-self: flex-start;
+  font: bold 14px/14px $Ubuntu;
+  color: #ffffff;
+  background: $blue;
+  text-align: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  &:hover{
+    background: $orange;
+  }
+}
+
+.btn-alt {
+  padding: 15px 17px;
+  font: 18px/24px $UbuntuRegular;
+  text-transform: initial;
+  border-radius: 3px;
+  background: $orange;
+}

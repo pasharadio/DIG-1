@@ -1,0 +1,664 @@
+.container {
+  min-height: 100%;
+  max-width: 1366px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+header {
+  position: fixed;
+  width: 18.52%;
+  max-width: 253px;
+  height: 100vh;
+  padding: 25px 10px 25px 28px;
+  z-index: 1;
+  background-color: #e5e1e6;
+
+  .logo {
+    margin-bottom: 47px;
+  }
+
+  .menu,
+  .sub-menu,
+  .more-menu {
+    list-style: none;
+  }
+
+  .more-menu,
+  .sub-menu {
+    font-family: "OpenSans Light", sans-serif;
+    font-size: 12px;
+    line-height: 23px;
+    list-style-type: none;
+  }
+
+  .menu {
+    font-family: "Ubuntu Bold", sans-serif;
+    margin-bottom: 75px;
+    list-style-type: none;
+
+    >li {
+      margin-bottom: 40px;
+      font-size: 14px;
+
+      a {
+
+        &:active,
+        &:hover {
+          color: #e87722;
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #071d49;
+    }
+  }
+
+  .more-menu {
+    line-height: 25px;
+
+    >li a:hover {
+      color: #e87722;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 12px;
+      color: #071d49;
+    }
+  }
+
+
+  .more-menu .sub-menu {
+    li {
+      &:before {
+        content: "";
+        position: absolute;
+        height: 5px;
+        background-color: #e87722;
+        width: 0;
+        margin-top: calc(11px - 2.5px);
+        left: 0;
+        transition: all 200ms;
+      }
+
+      &.active:before {
+        content: "";
+        position: absolute;
+        height: 5px;
+        background-color: #e87722;
+        width: 44px;
+        margin-top: calc(11px - 2.5px);
+        left: 0;
+      }
+    }
+
+    margin-top: 23px;
+    margin-bottom: -10px;
+    margin-left: 26px;
+  }
+
+  @media (max-width: $mobile) {
+    display: none;
+  }
+}
+
+.main {
+  padding-bottom: 220px;
+  margin-left: 18.2%;
+
+  @media (max-width: $tablet-large) {
+    margin-left: 0;
+  }
+}
+
+.home-section {
+  height: 768px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  flex-direction: row;
+
+  @media (max-width: $tablet-large) {
+    height: auto;
+  }
+}
+
+.section-image,
+.section-content {
+  height: 100%;
+}
+
+.section-image {
+  width: 52%;
+
+  @media (max-width: $tablet-large) {
+    width: 100%;
+    height: 320px;
+    order: 2;
+  }
+}
+
+.section-content {
+  width: 48%;
+  padding: 37px 40px 40px 33px;
+
+  >.title {
+    margin-left: 35px;
+    margin-bottom: 40px;
+    color: #e87722;
+    font-family: "OpenSans SemiBold", sans-serif;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .description {
+    position: relative;
+    padding-left: 63px;
+    margin-bottom: 60px;
+  }
+
+  &__text {
+    font-family: $OpenSans;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
+    margin: 10px 34px 33px 8px;
+    color: $brown;
+  }
+
+  @media (max-width: $tablet-large) {
+    width: 100%;
+    order: 1;
+    margin-left: 0;
+    padding: 0 20px;
+    margin-bottom: 40px;
+
+    >.title {
+      margin-left: 0;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      padding-left: 0;
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.infrastructure {
+  .section-content {
+    .description {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .description .text {
+      max-width: 224px;
+      margin-top: -40px;
+      font-family: $OpenSans;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .btn {
+      margin-right: 20px;
+    }
+
+    .fon-text {
+      margin-top: -135px;
+      color: #cdcaca;
+      font-family: $Ubuntu;
+      font-size: 56px;
+      line-height: 1.3;
+    }
+
+    @media (max-width: $tablet-large) {
+      .fon-text {
+        margin-top: 0;
+      }
+
+      .description {
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: $mobile) {
+      .fon-text {
+        font-size: 33px;
+      }
+    }
+
+    @media (max-width: 424px) {
+      .btn {
+        order: 2;
+      }
+
+      .description .text {
+        order: 1;
+        max-width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  @media (max-width: $tablet-large) {
+    margin-bottom: 40px;
+
+    .title {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.solutions {
+  .description {
+    margin-top: 129px;
+    margin-left: 95px;
+    padding-left: 0;
+    font-family: "OpenSans SemiBold", sans-serif;
+    font-size: 18px;
+    line-height: 1.35;
+
+    li {
+      list-style: none;
+      margin-top: 15px;
+    }
+  }
+
+  .btn {
+    margin-top: 53px;
+    margin-left: 5px;
+  }
+
+  @media (max-width: $tablet-large) {
+    margin-bottom: 40px;
+
+    .title {
+      margin-bottom: 20px;
+    }
+
+    .description {
+      margin-top: 0px;
+      margin-left: 0;
+    }
+  }
+}
+
+.work-with {
+  .section-content {
+    padding-right: 39px;
+
+    >.title {
+      margin-bottom: 38px;
+    }
+
+    .description {
+      padding-left: 28px;
+
+      .title {
+        position: relative;
+        font-size: 40px;
+        font-family: "Ubuntu Bold", sans-serif;
+        color: #071d49;
+      }
+
+      .text {
+        font-family: ""OpenSans Regular"", sans-serif;
+        font-size: 14px;
+        margin: 10px 34px 23px 8px;
+      }
+    }
+  }
+
+  @media (max-width: $tablet-large) {
+    margin-bottom: 40px;
+
+    .section-content {
+      margin-bottom: 0;
+
+      .description {
+        padding-left: 0;
+
+        .title {
+          font-size: 36px;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  width: 1113px;
+  height: 220px;
+  background: #071d49;
+  padding: 48px 20px 0 67px;
+  font-size: 14px;
+  color: #ffffff;
+  margin-left: 253px;
+
+  .title {
+    margin-bottom: 14px;
+    font-family: "Ubuntu Bold", sans-serif;
+  }
+
+  .contacts {
+    margin-right: 86px;
+    line-height: 1.46;
+
+    .content {
+      font-family: "OpenSans Regular", sans-serif;
+    }
+  }
+
+  .location {
+    margin-right: 5px;
+
+    .title {
+      margin-bottom: 22px;
+    }
+  }
+
+  >div:last-child .title {
+    margin-bottom: 15px;
+    margin-left: 28px;
+  }
+
+  .logos {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    >div {
+      display: inline-block;
+      width: 105px;
+      margin-right: 3px;
+
+      &:nth-of-type(2) {
+        img:not(:last-child) {
+          margin-bottom: 18px;
+        }
+      }
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+
+      &:not(:last-child) {
+        margin-bottom: 11px;
+      }
+    }
+  }
+}
+
+/*@media screen and (max-height: 730px) {
+    header {
+        position: relative;
+        float: left;
+        height: 978px;
+    }
+}*/
+
+.svg {
+  position: absolute;
+  top: -9px;
+  left: 0;
+  fill: none;
+  stroke-width: 8;
+}
+
+//style kr
+a {}
+
+.text-fon {
+  font-family: $Ubuntu;
+  font-size: 55px;
+  line-height: 55px;
+  color: $brown;
+  text-transform: uppercase;
+  opacity: 0.25;
+
+  @media (max-width: $mobile) {
+    font-size: 33px;
+    line-height: 33px;
+  }
+}
+
+.bg-image {
+  background-size: auto 769px;
+  background-position-x: 51.5%;
+  background-repeat: no-repeat;
+}
+
+.our-value {
+  .section-content {
+    .title {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__item {
+    &:nth-child(1) {
+      margin-bottom: 43px;
+      padding-left: 137px;
+    }
+
+    &:nth-child(2) {
+      margin-bottom: 10px;
+      padding-left: 73px;
+    }
+
+    &:nth-child(3) {
+      margin-bottom: 36px;
+    }
+  }
+
+  @media (max-width: $tablet-large) {
+    margin-bottom: 40px;
+
+    .section-content {
+      margin-bottom: 40px;
+    }
+
+    &__item {
+      &:nth-child(1) {
+        margin-bottom: 33px;
+        padding-left: 0px;
+      }
+
+      &:nth-child(2) {
+        margin-bottom: 33px;
+        padding-left: 0px;
+      }
+
+      &:nth-child(3) {
+        margin-bottom: 33px;
+      }
+    }
+  }
+}
+
+.desc {
+  &__title {
+    margin-bottom: 10px;
+    font-family: $Ubuntu;
+    font-size: 40px;
+    line-height: 46px;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    font-family: $OpenSans;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+  }
+
+  @media (max-width: $tablet-large) {
+    &__title {
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+}
+
+.main .section-content>.title {
+  &--mb25 {
+    margin-bottom: 12px;
+  }
+}
+
+.ml-35 {
+  margin-left: 35px;
+
+  @media (max-width: $tablet-large) {
+    margin-left: 0;
+  }
+}
+
+.our-brands {
+  &__desc {
+    margin-left: 35px;
+    font-family: $OpenSans;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+    margin-bottom: 62px;
+  }
+
+  &__logos {
+    display: flex;
+    margin-right: 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: -10px;
+  }
+
+  &__logo {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+
+    img {
+      display: inline-block;
+      max-width: 100%;
+    }
+
+    img[src*="logo-ivac"] {
+      margin-bottom: -40px;
+    }
+
+    img[src*="logo-crown"] {
+      margin-left: -20px;
+    }
+  }
+
+  @media (max-width: $tablet-large) {
+    margin-bottom: 40px;
+
+    .section-content {
+      margin-bottom: 40px;
+    }
+
+    &__desc {
+      margin-left: 0;
+    }
+
+    &__logo {
+      width: 40%;
+    }
+  }
+}
+
+.our-projects {
+  &.home-section {
+    height: 782px;
+  }
+
+  .section-content>.title {
+    margin-bottom: -5px;
+  }
+
+  &__items {
+    margin-top: 70px;
+  }
+
+  &__item {
+    display: block;
+    text-decoration: none;
+    font-family: $OpenSans;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: $blue; //$orange
+    margin-bottom: 30px;
+    margin-left: auto;
+    max-width: 215px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  @media (max-width: $tablet-large) {
+    margin-bottom: 40px;
+
+    &__items {
+      margin-top: 33px;
+    }
+  }
+}
+
+.people-cross {
+  &.home-section {
+    height: 757px;
+  }
+
+  .section-content>.title {
+    margin-bottom: 62px;
+  }
+
+  &__items {}
+
+  &__item {
+    display: block;
+    font-family: $Ubuntu;
+    font-size: 40px;
+    line-height: 1.18;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    transition: all 0.5s ease;
+    color: $brown;
+    text-decoration: none;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  @media (max-width: $tablet-large) {
+    &__item {
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+}

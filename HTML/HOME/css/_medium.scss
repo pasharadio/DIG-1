@@ -1,0 +1,713 @@
+@import "mixins";
+
+$color-h2: #e87722;
+$color-header-main-bg: #e5e1e6;
+
+body {
+  width: 100%;
+}
+
+//*********************************************
+//  Content-wrapper
+//*********************************************
+.content-wrapper {
+  position: relative;
+  margin: 0 auto;
+}
+
+//*********************************************
+// Whole page container
+//*********************************************
+.container {
+  display: block;
+  @include width-min-max(767px, 100%); /////
+
+  //*********************************************
+  // Main content
+  //*********************************************
+  .main {
+    max-width: 100%;
+    margin-top: 49px; /////
+  }
+}
+
+//*********************************************
+// Page header
+//*********************************************
+header {
+  @include position(fixed, 0, 0);
+  min-width: 767px; /////
+  z-index: 10;
+  @include width-height(100%, 49px);
+  background-color: $color-header-main-bg;
+  text-align: center;
+
+  .content-wrapper {
+    // max-width: 768px; //need to make header section to squeeze on highter resolution
+    height: 49px;
+  }
+
+  .close-menu-btn {
+    @include position(absolute, 24px, 15px);
+    @include width-height(25px, 25px);
+    text-decoration: none;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      content: " ";
+      height: 30px;
+      @include position(absolute, 50%, -13%);
+      border-left: 2px solid darkslategray;
+      transform: rotate(45deg);
+    }
+
+    &:before {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .open-menu-btn {
+    @include position(absolute, 0, 0);
+    @include width-height(49px, 49px);
+    margin-left: 10px;
+    background-color: transparent;
+
+    &:hover {
+      background-color: $color-h2;
+    }
+
+    &:before {
+      content: "";
+      @include position(absolute, 50%, 50%);
+      @include width-height(70%, 30%);
+      transform: translate(-50%, -50%);
+      border-top: 1px solid darkslategray;
+      border-bottom: 1px solid darkslategray;
+    }
+
+    &:after {
+      content: "";
+      @include position(absolute, 50%, 50%);
+      @include width-height(70%, 0px);
+      transform: translate(-50%);
+      border-bottom: 1px solid darkslategray;
+    }
+  }
+
+  .logo {
+    display: inline-block;
+    height: 100%;
+    padding: 6px;
+  }
+
+  .menu,
+  .sub-menu,
+  .more-menu {
+    width: 320px;
+    margin-top: 60px;
+    margin-left: 20px;
+    list-style: none;
+  }
+
+  .more-menu,
+  .sub-menu {
+    font-family: $OpenSansLight;
+    font-size: 12px;
+    line-height: 23px;
+    list-style-type: none;
+  }
+
+  .menu {
+    font-family: $Ubuntu;
+    margin-bottom: 75px;
+    list-style-type: none;
+
+    a {
+      text-decoration: none;
+      color: #071d49;
+    }
+
+    > li {
+      margin-bottom: 40px;
+      font-size: 14px;
+
+      a {
+        &:active,
+        &:hover {
+          color: #e87722;
+        }
+      }
+    }
+
+    .sub-menu {
+      margin-top: 23px;
+      margin-bottom: -10px;
+      margin-left: 26px;
+
+      li {
+        &:before {
+          content: "";
+          position: absolute;
+          height: 5px;
+          background-color: #e87722;
+          width: 0;
+          margin-top: calc(11px - 2.5px);
+          left: 0;
+          transition: all 200ms;
+        }
+
+        &.active:before {
+          content: "";
+          position: absolute;
+          height: 5px;
+          background-color: #e87722;
+          width: 44px;
+          margin-top: calc(11px - 2.5px);
+          left: 0;
+        }
+      }
+    }
+  }
+
+  .more-menu {
+    line-height: 25px;
+    margin-bottom: 20px;
+
+    > li a {
+      text-decoration: none;
+      font-size: 12px;
+      color: #071d49;
+
+      &:hover {
+        color: #e87722;
+      }
+    }
+  }
+}
+
+#main-nav {
+  @include position(absolute, 0, 0);
+  background: #e5e1e6;
+  width: 0;
+  max-width: 45%; /////
+  height: 100vh; /////
+  text-align: initial;
+  overflow-x: hidden;
+  transition: 500ms ease;
+}
+
+//*********************************************
+//  Single section
+//*********************************************
+.home-section {
+  @include flex(row, nowrap, stretch, stretch);
+  // max-width: 767px; //need to make all main sections section to squeeze on highter resolution
+  min-height: 635px;
+  margin: 0 auto;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  svg {
+    @include position(absolute, 0, 0);
+    display: none;
+  }
+
+  .section-image {
+    width: 45%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  //*********************************************
+  // Single section: content block
+  //*********************************************
+  .section-content {
+    padding: 25px 40px 0 40px; /////
+    width: 55%; /////
+
+    > .title {
+      margin-bottom: 35px;
+      color: $color-h2;
+      font: normal normal 24px/1.2 "OpenSans SemiBold", sans-serif;
+    }
+
+    .description {
+      @include flex(column);
+      max-width: 380px;
+      margin: 0 0;
+
+      .title {
+        position: relative;
+        margin-bottom: 10px;
+        font: 30px/30px $Ubuntu;
+        text-transform: uppercase;
+        color: #071d49;
+      }
+
+      .text {
+        max-width: 349px;
+        margin-bottom: 17px;
+        font: 600 18px/1.35 $OpenSans;
+      }
+
+      .list {
+        margin-bottom: 20px;
+        font: 18px/2.2 $OpenSansSemiBold;
+        list-style: none;
+      }
+
+      .btn {
+        margin-bottom: 26px;
+      }
+    }
+
+    .fon-text {
+      margin-bottom: 25px;
+      color: #cdcaca;
+      font: 30px/1.34 $Ubuntu;
+      text-transform: uppercase;
+      width: 310px; /////
+      font-size: 36px; /////
+      letter-spacing: 1px; /////
+      line-height: 1.2; /////
+      opacity: 0.5; /////
+    }
+  }
+}
+
+//*********************************************
+// 0.infrastructure
+//*********************************************
+.home-section.infrastructure {
+  .section-content {
+    > .title {
+      margin-bottom: 32px;
+    }
+
+    .description {
+      @include flex(row-reverse, nowrap, space-between); /////
+
+      .text {
+        margin-right: -20px; /////
+        max-width: 54%; /////
+        min-width: 200px; /////
+        font: 16px/24px $OpenSansSemiBold; /////
+      }
+
+      .btn {
+        margin-top: 30px; /////
+      }
+    }
+
+    .fon-text {
+      margin-top: -60px; /////
+    }
+  }
+}
+
+//*********************************************
+// 1.solutions
+//*********************************************
+
+.home-section.solutions,
+.home-section.work-with {
+  .section-content {
+    .title {
+      margin-bottom: 55px;
+    }
+  }
+}
+
+//*********************************************
+//  2.work-with-us
+//*********************************************
+.home-section.work-with {
+  .section-content {
+    .title {
+      margin-bottom: 44px; /////
+    }
+
+    .description {
+      .title {
+        margin-bottom: 18px;
+      }
+
+      .text {
+        max-width: 325px;
+        font: 400 14px/20px $OpenSans;
+        margin-bottom: 35px;
+      }
+
+      div:last-of-type {
+        .text {
+          margin-bottom: 75px;
+        }
+      }
+    }
+  }
+}
+
+//*********************************************
+//  3.our value
+//*********************************************
+.home-section.our-value {
+  .section-content {
+    > .title {
+      margin-bottom: 35px;
+    }
+
+    .description {
+      .title {
+        max-width: 250px; /////
+        margin-bottom: 20px;
+        line-height: 1;
+      }
+
+      .text {
+        max-width: 320px; /////
+        margin-bottom: 40px;
+        font-size: 16px;
+        line-height: 1.44;
+      }
+
+      .our-value__items .our-value__item:last-child {
+        margin-bottom: 55px; /////
+      }
+    }
+  }
+}
+
+//*********************************************
+//  4.our-brands
+//*********************************************
+.home-section.our-brands {
+  .section-content {
+    padding-top: 34px;
+
+    .description {
+      .text {
+        margin-bottom: 40px;
+        font-size: 16px;
+        line-height: 1.44;
+      }
+    }
+  }
+
+  .fon-text {
+    line-height: 42px;
+  }
+}
+
+.brands-container {
+  width: 300px;
+  @include flex(row, wrap, stretch);
+  margin-bottom: 36px;
+
+  .brand {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 50%;
+
+    img {
+      &[src*="distinct"] {
+        width: 100px;
+        margin-bottom: 35px;
+      }
+
+      &[src*="logo-ivac"] {
+        width: 105px;
+        margin-top: 5px;
+      }
+
+      &[src*="logo-crown"] {
+        width: 60px;
+      }
+
+      &[src*="logo-pillar"] {
+        width: 135px;
+        margin-left: -6px;
+      }
+    }
+  }
+}
+
+.home-section.our-projects,
+.home-section.people-cross {
+  .section-content {
+    .description {
+      .list {
+        a {
+          display: block;
+          text-decoration: none;
+          font: 600 16px/1.5 $OpenSans;
+          color: $blue;
+          margin-bottom: 16px;
+          max-width: 215px;
+
+          &:hover {
+            color: $orange;
+          }
+        }
+      }
+    }
+  }
+}
+
+//*********************************************
+//  5.our-projects
+//*********************************************
+.home-section.our-projects {
+  .section-content {
+    .list {
+      align-self: flex-end;
+      margin-bottom: 58px;
+    }
+
+    .description {
+      .text {
+        font-size: 14px;
+        line-height: 1.55;
+        margin-bottom: 60px;
+      }
+    }
+  }
+}
+
+//*********************************************
+// 6.people-cross
+//*********************************************
+.home-section.people-cross {
+  position: relative;
+
+  .section-image {
+    position: relative;
+  }
+
+  .section-content {
+    .title {
+      min-width: 380px; /////
+      margin-bottom: 60px;
+    }
+
+    .description {
+      .list {
+        margin-bottom: 0px;
+
+        a {
+          margin-bottom: 50px;
+          text-transform: uppercase;
+          font-size: 30px;
+          line-height: 30px;
+          font-weight: 800;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+}
+
+.investor-block,
+.clients-block,
+.leadership-block {
+  z-index: 1;
+  position: relative; //////
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  &:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.85;
+    //   background: url('../img/bg-people.jpg') center 0 no-repeat;
+    //   background-size: cover;
+    background: $color-leadership-opacity-back;
+  }
+}
+
+//*********************************************
+// Leadership-block
+//*********************************************
+.leadership-block {
+  .content-wrapper {
+    padding: 0 20px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    max-width: 360px;
+  }
+
+  .persons-block {
+    margin-bottom: 30px;
+  }
+
+  .person {
+    @include flex(row, nowrap, space-between, start);
+    max-width: 320px;
+    color: white;
+    margin-bottom: 20px;
+    margin-left: 0px;
+
+    .person-img {
+      @include width-height(136px);
+      margin-top: 8px;
+      margin-right: 18px;
+    }
+
+    .person-description {
+      max-width: 188px;
+
+      .name,
+      .position {
+        font: 18px/24px $Ubuntu;
+      }
+
+      .position {
+        margin-bottom: 10px;
+      }
+
+      p {
+        font: 14px/20px $UbuntuRegular;
+      }
+    }
+  }
+
+  .btn-alt {
+    display: none;
+  }
+}
+
+//*********************************************
+// clients-block
+//*********************************************
+.clients-block {
+  .content-wrapper {
+    padding-left: 35px;
+    width: 310px;
+    padding-right: 35px;
+  }
+  .logos {
+    @include flex(row, wrap, space-between, center, stretch);
+    padding-top: 90px;
+    padding-bottom: 80px;
+
+    .logo {
+      // display: flex;
+      // justify-content: flex-start;
+      display: block;
+      width: 35%;
+      margin-bottom: 14px;
+
+      img {
+        display: block;
+        min-height: 14px;
+      }
+    }
+  }
+}
+
+//*********************************************
+// investor-block
+//*********************************************
+.investor-block {
+  padding-top: 130px;
+  padding-bottom: 120px;
+  text-align: center;
+  color: white;
+  * {
+      margin-bottom: 40px;
+  }
+  h2 {
+    font: 900 34px/39px $Ubuntu;
+  }
+  p {
+    font: 26px/36px $UbuntuLight;
+    text-transform: uppercase;
+  }
+}
+
+//*********************************************
+// Main footer
+//*********************************************
+footer {
+  padding: 50px 40px 40px 60px;
+  width: 100%;
+  background: #071d49;
+  font-size: 14px;
+  color: #ffffff;
+.plumb{display: none;}
+  .content-wrapper {
+    @include flex(row, wrap);
+    margin: 0 auto;
+  }
+
+  .title {
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    font-family: $OpenSansBold;
+  }
+
+  .content {
+    font-family: $OpenSansRegular;
+  }
+
+  .footer-section {
+    margin-bottom: 45px;
+
+    &:nth-of-type(1) {
+      width: 45%;
+      line-height: 1.46;
+    }
+  
+    &:nth-of-type(2) {
+      width: 55%;
+      padding: 0 30px;
+      .title {
+        margin-bottom: 22px;
+      }
+    }
+  
+
+    &:nth-of-type(3) {
+      width: 100%;
+  
+      .title {
+        margin-bottom: 15px;
+      }
+  
+      .logos {
+        @include flex(row, wrap, space-between, center, stretch);
+        width: 100%;
+    
+        .logo {
+          display: flex;
+          justify-content: center;
+          width: 15%;
+          display: block;
+          padding: 4px;
+          margin: 4px auto;
+    
+          img {
+            display: block;
+            max-width: 100%;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+
+  
+
+  
+}

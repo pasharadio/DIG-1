@@ -1,0 +1,117 @@
+@font-face {
+  font-family: Ubuntu Bold;
+  src: url("../fonts/ubuntu/Ubuntu/Ubuntu-Bold.ttf");
+}
+
+@font-face {
+  font-family: Ubuntu Regular;
+  src: url("../fonts/ubuntu/Ubuntu/Ubuntu-Regular.ttf");
+}
+@font-face {
+  font-family: Ubuntu Light;
+  src: url("../fonts/ubuntu/Ubuntu/Ubuntu-Light.ttf");
+}
+
+@font-face {
+  font-family: OpenSans Light;
+  src: url("../fonts/open sans/Open Sans/OpenSans-Light.ttf");
+}
+
+@font-face {
+  font-family: OpenSans Bold;
+  src: url("../fonts/open sans/Open Sans/OpenSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: OpenSans SemiBold;
+  src: url("../fonts/open sans/Open Sans/OpenSans-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: OpenSans Regular;
+  src: url("../fonts/open sans/Open Sans/OpenSans-Regular.ttf");
+}
+
+
+
+$Ubuntu:'Ubuntu Bold',
+sans-serif;
+$UbuntuRegular: 'Ubuntu Regular',
+sans-serif;
+$UbuntuLight: 'Ubuntu Light',
+sans-serif;
+$OpenSansLight:'OpenSans Light',
+sans-serif;
+$OpenSans:'OpenSans',
+sans-serif;
+$OpenSansBold: "OpenSans Bold",
+sans-serif;
+$OpenSansSemiBold: "OpenSans SemiBold",
+sans-serif;
+$OpenSansRegular: "OpenSans Regular",
+sans-serif;
+
+$mobile: 400px;
+$tablet-large: 991px;
+$tablet-medium: 765px;
+$desktop: 1331px;
+
+$blue:#071d49;
+$brown:#372b2b;
+$orange:#e87722;
+$color-leadership-opacity-back:#071d49;
+$color-h3-work-with-us: #071d49;
+
+@import "fonts";
+@import "btn";
+
+.blue {
+  color: $blue;
+}
+
+.brown {
+  color: $brown;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box!important;
+  cursor: default
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+a{
+  cursor: pointer;
+}
+
+a.active {
+  color: $orange;
+}
+
+.show { 
+  display: block;
+}
+.hide {
+  display:none;
+}
+
+@media (max-width:$mobile) {
+  @import "small";
+}
+
+@media (min-width:$mobile) and (max-width:$tablet-large) {
+  @import "medium";
+}
+
+@media (min-width:$tablet-large) {
+  @import "original";
+}
